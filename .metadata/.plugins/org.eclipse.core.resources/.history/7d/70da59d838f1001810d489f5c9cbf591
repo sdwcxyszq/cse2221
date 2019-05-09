@@ -1,0 +1,57 @@
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+public class Glossary_Test {
+
+	@Test
+	public void arraySort_test1() {
+		ArrayList<String> array = new ArrayList<String>();
+		array.add("name");
+		array.add("flight");
+		array.add("hi");
+		array.add("whatever");
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("flight");
+		list.add("hi");
+		list.add("name");
+		list.add("whatever");
+		ArrayList<String> newArray=Glossary_Processor.arraySort(array);
+		assertEquals(newArray.get(0),list.get(0));
+		assertEquals(newArray.get(1),list.get(1));
+		assertEquals(newArray.get(2),list.get(2));
+		assertEquals(newArray.get(3),list.get(3));
+	}
+	@Test
+	public void arraySort_test2() {
+		ArrayList<String> array = new ArrayList<String>();
+		array.add("name");
+		array.add("flight");
+		array.add("whatever");
+		array.add("hi");
+		array.add("query");
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("flight");
+		list.add("hi");
+		list.add("name");
+		list.add("query");
+		list.add("whatever");
+		ArrayList<String> newArray=Glossary_Processor.arraySort(array);
+		assertEquals(newArray.get(0),list.get(0));
+		assertEquals(newArray.get(1),list.get(1));
+		assertEquals(newArray.get(2),list.get(2));
+		assertEquals(newArray.get(3),list.get(3));
+		assertEquals(newArray.get(4),list.get(4));
+	}
+	@Test
+	public void arraySort_test3() {
+		fail("Not yet implemented");
+	}
+	@Test
+	public void arraySort_test4() {
+		fail("Not yet implemented");
+	}
+
+}

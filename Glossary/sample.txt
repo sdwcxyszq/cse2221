@@ -1,0 +1,8 @@
+<html>
+<head>
+<title>Get one place</title>
+</head>
+<body>
+<h2>Get one place</h2>
+<hr />
+<h3>Index</h3>

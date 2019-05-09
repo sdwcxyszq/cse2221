@@ -1,0 +1,103 @@
+import java.util.Comparator;
+
+import components.naturalnumber.NaturalNumber;
+import components.naturalnumber.NaturalNumber1L;
+import components.naturalnumber.NaturalNumber2;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+import components.xmltree.XMLTree;
+import components.queue.*;
+
+/**
+ * Program with implementation of {@code NaturalNumber} secondary operation
+ * {@code root} implemented as static method.
+ *
+ * @author Put your name here
+ *
+ */
+public final class NaturalNumberRoot {
+	/**
+     * Updates n to its p-th power modulo m.
+     * 
+     * @param n
+     *            number to be raised to a power
+     * @param p
+     *            the power
+     * @param m
+     *            the modulus
+     * @updates n
+     * @requires m > 1
+     * @ensures n = #n ^ (p) mod m
+     */
+    public static void powerMod(NaturalNumber n, NaturalNumber p,
+            NaturalNumber m) {
+        assert m.compareTo(new NaturalNumber2(1)) > 0 : "Violation of: m > 1";
+        NaturalNumber zero = new NaturalNumber2(0);
+        NaturalNumber one = new NaturalNumber2(1);
+        NaturalNumber two = new NaturalNumber2(2);
+        NaturalNumber pcopy= new NaturalNumber2(p);
+        if(pcopy.compareTo(zero)==0) {
+        	n.copyFrom(one);
+        }
+        else if(isEven(pcopy)) {
+        	pcopy.divide(two);
+        	NaturalNumber ncopy = new NaturalNumber2(n);
+        	powerMod(n,pcopy,m);
+        	powerMod(ncopy,pcopy,m);
+        	n.multiply(ncopy);
+        	NaturalNumber result = n.divide(m);
+        	n.transferFrom(result);
+        }
+        else {
+        	pcopy.divide(two);
+        	NaturalNumber ncopy = new NaturalNumber2(n);
+        	NaturalNumber norgin = new NaturalNumber2(n);
+        	powerMod(n,pcopy,m);
+        	powerMod(ncopy,pcopy,m);
+        	n.multiply(ncopy);
+        	n.multiply(norgin);
+        	NaturalNumber result = n.divide(m);
+        	n.transferFrom(result);
+        }
+
+    }
+    /**
+     * Reports whether n is even.
+     * 
+     * @param n
+     *            the number to be checked
+     * @return true iff n is even
+     * @ensures isEven = (n mod 2 = 0)
+     */
+    public static boolean isEven(NaturalNumber n) {
+    	NaturalNumber ncopy= new NaturalNumber2(n);
+    	int remainder= ncopy.divideBy10();
+    	if(remainder%2==0) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+   
+    
+	/**
+     * Main method.
+     *	
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleWriter out = new SimpleWriter1L();
+        NaturalNumber a= new NaturalNumber2(5);
+        NaturalNumber b= new NaturalNumber2(3);
+        NaturalNumber c= new NaturalNumber2(3);
+        powerMod(a,b,c);
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        
+        
+    }
+
+}

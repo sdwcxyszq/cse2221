@@ -1,0 +1,17 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import components.naturalnumber.NaturalNumber1L;
+
+public class Model_Test {
+	
+	//Test for method top
+	@Test
+	public void top_test1() {
+		NNCalcModel1 model = new NNCalcModel1();
+		model.top().copyFrom(new NaturalNumber1L(2));
+		
+	}
+
+}

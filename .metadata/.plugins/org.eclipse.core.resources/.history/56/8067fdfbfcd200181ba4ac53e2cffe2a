@@ -1,0 +1,117 @@
+import components.naturalnumber.NaturalNumber;
+import components.naturalnumber.NaturalNumber2;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+
+/**
+ * Program with implementation of {@code NaturalNumber} secondary operation
+ * {@code root} implemented as static method.
+ *
+ * @author Put your name here
+ *
+ */
+public final class NaturalNumberRoot {
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private NaturalNumberRoot() {
+    }
+    /**
+     * Returns the number of digits of {@code n}.
+     * 
+     * @param n
+     *            {@code NaturalNumber} whose digits to count
+     * @return the number of digits of {@code n}
+     * @ensures numberOfDigits = [number of digits of n]
+     */
+    private static int numberOfDigits(NaturalNumber n) {
+    	NaturalNumber sample = new NaturalNumber2(n);
+    	if(sample.compareTo(new NaturalNumber2	(0))==0) {
+    		return 0;
+    	}
+    	else {
+    		sample.divideBy10();
+    		return 1 + numberOfDigits(sample) ;
+    	}
+    }
+    /**
+     * Returns the sum of the digits of {@code n}.
+     * 
+     * @param n
+     *            {@code NaturalNumber} whose digits to add
+     * @return the sum of the digits of {@code n}
+     * @ensures sumOfDigits = [sum of the digits of n]
+     */
+    /*private static int sumOfDigits(NaturalNumber n) {
+    	NaturalNumber sample= new NaturalNumber2(n);
+    	if(sample.compareTo(new NaturalNumber2(0))==0) {
+    		return 0;
+    	}
+    	else {
+    		return sample.divideBy10()+sumOfDigits(sample);
+    	}
+    }
+    */
+    /**
+     * Returns the sum of the digits of {@code n}.
+     * 
+     * @param n
+     *            {@code NaturalNumber} whose digits to add
+     * @return the sum of the digits of {@code n}
+     * @ensures sumOfDigits = [sum of the digits of n]
+     */
+    private static NaturalNumber sumOfDigits(NaturalNumber n) {
+    	NaturalNumber sample= new NaturalNumber2(n);
+    	if(sample.compareTo(new NaturalNumber2(0))==0) {
+    		return new NaturalNumber2(0);
+    	}
+    	else {
+    		NaturalNumber num = new NaturalNumber2(sample.divideBy10());
+    		num.add(sumOfDigits(sample));
+    		return num;
+    	}
+    }
+    /**
+     * Divides {@code n} by 2.
+     * 
+     * @param n
+     *            {@code NaturalNumber} to be divided
+     * @updates n
+     * @ensures 2 * n <= #n < 2 * (n + 1)
+     */
+    private static void divideBy2(NaturalNumber n) {
+    	
+    }
+    /**
+     * Checks whether a {@code String} is a palindrome.
+     * 
+     * @param s
+     *            {@code String} to be checked
+     * @return true if {@code s} is a palindrome, false otherwise
+     * @ensures isPalindrome = (s = rev(s))
+     */
+    private static boolean isPalindrome(String s) {
+    	if(s.length()<2) {
+    		return true;
+    	}
+    	else {
+    		if(s.charAt(0)==s.charAt(s.length()-1)) {
+        		return isPalindrome(s.substring(1,s.length()-1));
+    		}
+    		else {
+    			return false;
+    		}
+    	}
+    }
+    public static void main(String[] args) {
+        SimpleWriter out = new SimpleWriter1L();
+        out.println(isPalindrome("12321"));
+        
+        
+        
+
+        out.close();
+    }
+}
+

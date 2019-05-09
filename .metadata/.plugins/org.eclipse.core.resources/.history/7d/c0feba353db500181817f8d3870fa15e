@@ -1,0 +1,14 @@
+import components.simplewriter.SimpleWriter;
+/**
+ * Repeatedly asks the user for a positive integer until the user enters
+ * one. Returns the positive integer.
+ * 
+ * @param in
+ *            the input stream
+ * @param out
+ *            the output stream
+ * @return a positive integer entered by the user
+ */
+private static int getPositiveInteger(SimpleReader in, SimpleWriter out) {
+	
+}

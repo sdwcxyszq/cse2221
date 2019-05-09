@@ -1,0 +1,40 @@
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+public class Glossary_Test {
+
+	@Test
+	public void arraySort_test1() {
+		ArrayList<String> array = new ArrayList<String>();
+		array.add("name");
+		array.add("flight");
+		array.add("hi");
+		array.add("whatever");
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("flight");
+		list.add("hi");
+		list.add("name");
+		list.add("whatever");
+		Glossary_Processor.arraySort(array);
+		assertEquals(array.get(0),list.get(0));
+		assertEquals(array.get(1),list.get(1));
+		assertEquals(array.get(2),list.get(2));
+		assertEquals(array.get(3),list.get(3));
+	}
+	@Test
+	public void arraySort_test2() {
+		fail("Not yet implemented");
+	}
+	@Test
+	public void arraySort_test3() {
+		fail("Not yet implemented");
+	}
+	@Test
+	public void arraySort_test4() {
+		fail("Not yet implemented");
+	}
+
+}

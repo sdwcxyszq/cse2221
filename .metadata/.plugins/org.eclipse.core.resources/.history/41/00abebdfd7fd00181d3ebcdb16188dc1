@@ -1,0 +1,18 @@
+import components.queue.*;
+import components.queue.Queue1L;
+import components.set.*;
+import components.stack.*;
+public class practice {
+
+	public static void main(String[] args) {
+		Stack<Integer> num = new Stack1L<>();
+		num.push(2);
+		num.push(4);
+		num.push(5);
+		int k = num.top();
+		k= 80;
+		System.out.println(num.top());
+		
+	}
+
+}

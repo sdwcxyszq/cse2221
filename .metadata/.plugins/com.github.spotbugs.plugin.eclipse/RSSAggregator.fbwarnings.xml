@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.1.11" sequence="1" timestamp="1550532257696" analysisTimestamp="1550532253274" release="">
+  <Project projectName="RSSAggregator">
+    <Jar>C:\Users\Daniel Sheng\Desktop\cse\RSSAggregator\bin\RSSAggregator.class</Jar>
+    <AuxClasspathEntry>C:\Users\Daniel Sheng\Desktop\cse\RSSAggregator\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Daniel Sheng\Desktop\MyEclipse\components.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Daniel Sheng\Desktop\eclipse\plugins\org.junit_4.12.0.v201504281640\junit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Daniel Sheng\Desktop\eclipse\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>D:\Program files\jdk\lib\jrt-fs.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\Daniel Sheng\Desktop\cse\RSSAggregator\src</SrcDir>
+    <SrcDir>C:\Users\Daniel Sheng\Desktop\cse\RSSAggregator\test</SrcDir>
+  </Project>
+  <BugInstance type="EC_UNRELATED_CLASS_AND_INTERFACE" priority="1" rank="4" abbrev="EC" category="CORRECTNESS" first="1">
+    <Class classname="RSSAggregator">
+      <SourceLine classname="RSSAggregator" sourcefile="RSSAggregator.java" sourcepath="RSSAggregator.java"/>
+    </Class>
+    <Method classname="RSSAggregator" name="outputHeader" signature="(Lcomponents/xmltree/XMLTree;Lcomponents/simplewriter/SimpleWriter;)V" isStatic="true">
+      <SourceLine classname="RSSAggregator" start="136" end="204" startBytecode="0" endBytecode="326" sourcefile="RSSAggregator.java" sourcepath="RSSAggregator.java"/>
+    </Method>
+    <Type descriptor="Ljava/lang/String;" role="TYPE_FOUND">
+      <SourceLine classname="java.lang.String"/>
+    </Type>
+    <Type descriptor="Lcomponents/xmltree/XMLTree;" role="TYPE_EXPECTED">
+      <SourceLine classname="components.xmltree.XMLTree" sourcefile="SourceFile" sourcepath="components/xmltree/SourceFile"/>
+    </Type>
+    <String value="" role="STRING_CONSTANT"/>
+    <Method classname="components.xmltree.XMLTree" name="child" signature="(I)Lcomponents/xmltree/XMLTree;" isStatic="false" role="METHOD_RETURN_VALUE_OF">
+      <SourceLine classname="components.xmltree.XMLTree" sourcefile="SourceFile" sourcepath="components/xmltree/SourceFile"/>
+    </Method>
+    <Method classname="java.lang.Object" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_EQUALS_USED">
+      <SourceLine classname="java.lang.Object"/>
+    </Method>
+    <Method classname="components.xmltree.XMLTreeSecondary" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_EQUALS_USED">
+      <SourceLine classname="components.xmltree.XMLTreeSecondary" start="161" end="171" startBytecode="0" endBytecode="123" sourcefile="SourceFile" sourcepath="components/xmltree/SourceFile"/>
+    </Method>
+    <SourceLine classname="RSSAggregator" start="191" end="191" startBytecode="767" endBytecode="767" sourcefile="RSSAggregator.java" sourcepath="RSSAggregator.java"/>
+    <SourceLine classname="RSSAggregator" start="191" end="191" startBytecode="767" endBytecode="767" sourcefile="RSSAggregator.java" sourcepath="RSSAggregator.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Mon, 18 Feb 2019 18:24:13 -0500" total_classes="1" referenced_classes="19" total_bugs="1" total_size="167" num_packages="1" java_version="9.0.1" vm_version="9.0.1+11" cpu_seconds="19.98" clock_seconds="4.46" peak_mbytes="497.71" alloc_mbytes="2024.00" gc_seconds="0.15" priority_1="1">
+    <PackageStats package="" total_bugs="1" total_types="1" total_size="167" priority_1="1">
+      <ClassStats class="RSSAggregator" sourceFile="RSSAggregator.java" interface="false" size="167" bugs="1" priority_1="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="759" invocations="2" avgMicrosecondsPerInvocation="379918" maxMicrosecondsPerInvocation="554767" standardDeviationMicrosecondsPerInvocation="174849"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="420" invocations="374" avgMicrosecondsPerInvocation="1124" maxMicrosecondsPerInvocation="271170" standardDeviationMicrosecondsPerInvocation="14416"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="249" invocations="373" avgMicrosecondsPerInvocation="669" maxMicrosecondsPerInvocation="25122" standardDeviationMicrosecondsPerInvocation="2034"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="91" invocations="19" avgMicrosecondsPerInvocation="4833" maxMicrosecondsPerInvocation="34467" standardDeviationMicrosecondsPerInvocation="8276"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="74" invocations="1" avgMicrosecondsPerInvocation="74109" maxMicrosecondsPerInvocation="74109" standardDeviationMicrosecondsPerInvocation="0"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="69" invocations="13" avgMicrosecondsPerInvocation="5341" maxMicrosecondsPerInvocation="17265" standardDeviationMicrosecondsPerInvocation="4834"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="65" invocations="13" avgMicrosecondsPerInvocation="5031" maxMicrosecondsPerInvocation="13294" standardDeviationMicrosecondsPerInvocation="3986"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="61" invocations="9" avgMicrosecondsPerInvocation="6879" maxMicrosecondsPerInvocation="19588" standardDeviationMicrosecondsPerInvocation="6530"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="51" invocations="9" avgMicrosecondsPerInvocation="5750" maxMicrosecondsPerInvocation="20517" standardDeviationMicrosecondsPerInvocation="6036"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="46" invocations="61" avgMicrosecondsPerInvocation="754" maxMicrosecondsPerInvocation="4936" standardDeviationMicrosecondsPerInvocation="816"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1550532257693" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

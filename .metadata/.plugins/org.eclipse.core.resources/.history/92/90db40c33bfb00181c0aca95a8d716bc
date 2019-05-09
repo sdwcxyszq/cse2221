@@ -1,0 +1,13 @@
+import components.queue.*;
+import components.queue.Queue1L;
+import components.set.*;
+public class practice {
+
+	public static void main(String[] args) {
+		Set<Integer> num = new Set1L<>();
+		num.add(6);
+		num.add(8);
+		num.remove(7);
+	}
+
+}

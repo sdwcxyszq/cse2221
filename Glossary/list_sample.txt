@@ -1,0 +1,9 @@
+<ul>
+<li><a href="hero.html">hero</a></li>
+<li><a href="game.html">game</a></li>
+<li><a href="help.html">help</a></li>
+<li><a href="people.html">people</a></li>
+<li><a href="mine.html">mine</a></li>
+</ul>
+</body>
+</html>

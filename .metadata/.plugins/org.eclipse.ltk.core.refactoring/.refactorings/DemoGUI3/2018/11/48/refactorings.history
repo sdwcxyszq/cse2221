@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;AppendUndoGUI/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;DemoGUI3&apos;&#x0D;&#x0A;- Destination element: &apos;AppendUndoGUI/src/(default package)&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     DemoModel1.java&#x0D;&#x0A;     DemoController1.java&#x0D;&#x0A;     DemoView1.java" description="Copy compilation units" destination="=AppendUndoGUI/src&lt;" element1="/src&lt;{DemoModel1.java" element2="/src&lt;{DemoController1.java" element3="/src&lt;{DemoView1.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1543560955047" units="3" version="1.0"/>
+</session>

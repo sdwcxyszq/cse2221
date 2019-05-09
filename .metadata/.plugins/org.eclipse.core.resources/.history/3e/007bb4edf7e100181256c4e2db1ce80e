@@ -1,0 +1,209 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+import components.naturalnumber.NaturalNumber;
+import components.naturalnumber.NaturalNumber2;
+
+/**
+ * @author Put your name here
+ * 
+ */
+public class CryptoUtilitiesTest {
+
+    /*
+     * Tests of reduceToGCD
+     */
+
+    @Test
+    public void testReduceToGCD_0_0() {
+        NaturalNumber n = new NaturalNumber2(0);
+        NaturalNumber m = new NaturalNumber2(0);
+        CryptoUtilities.reduceToGCD(n, m);
+        assertEquals("0", n.toString());
+        assertEquals("0", m.toString());
+    }
+
+    @Test
+    public void testReduceToGCD_30_21() {
+        NaturalNumber n = new NaturalNumber2(30);
+        NaturalNumber m = new NaturalNumber2(21);
+        CryptoUtilities.reduceToGCD(n, m);
+        assertEquals("3", n.toString());
+        assertEquals("0", m.toString());
+    }
+    @Test
+    public void testReduceToGCD_15_30() {
+        NaturalNumber n = new NaturalNumber2(15);
+        NaturalNumber m = new NaturalNumber2(30);
+        CryptoUtilities.reduceToGCD(n, m);
+        assertEquals("15", n.toString());
+        assertEquals("0", m.toString());
+    }
+
+    @Test
+    public void testReduceToGCD_35_21() {
+        NaturalNumber n = new NaturalNumber2(35);
+        NaturalNumber m = new NaturalNumber2(21);
+        CryptoUtilities.reduceToGCD(n, m);
+        assertEquals("7", n.toString());
+        assertEquals("0", m.toString());
+    }
+
+    /*
+     * Tests of isEven
+     */
+
+    @Test
+    public void testIsEven_0() {
+        NaturalNumber n = new NaturalNumber2(0);
+        boolean result = CryptoUtilities.isEven(n);
+        assertEquals("0", n.toString());
+        assertTrue(result);
+    }
+
+    @Test
+    public void testIsEven_1() {
+        NaturalNumber n = new NaturalNumber2(1);
+        boolean result = CryptoUtilities.isEven(n);
+        assertEquals("1", n.toString());
+        assertTrue(!result);
+    }
+    @Test
+    public void testIsEven_99() {
+        NaturalNumber n = new NaturalNumber2(99);
+        boolean result = CryptoUtilities.isEven(n);
+        assertEquals("99", n.toString());
+        assertTrue(!result);
+    }
+
+    @Test
+    public void testIsEven_100() {
+        NaturalNumber n = new NaturalNumber2(100);
+        boolean result = CryptoUtilities.isEven(n);
+        assertEquals("100", n.toString());
+        assertTrue(result);
+    }
+
+    /*
+     * Tests of powerMod
+     */
+
+    @Test
+    public void testPowerMod_0_0_2() {
+        NaturalNumber n = new NaturalNumber2(0);
+        NaturalNumber p = new NaturalNumber2(0);
+        NaturalNumber m = new NaturalNumber2(2);
+        CryptoUtilities.powerMod(n, p, m);
+        assertEquals("1", n.toString());
+        assertEquals("0", p.toString());
+        assertEquals("2", m.toString());
+    }
+
+    @Test
+    public void testPowerMod_17_18_19() {
+        NaturalNumber n = new NaturalNumber2(17);
+        NaturalNumber p = new NaturalNumber2(18);
+        NaturalNumber m = new NaturalNumber2(19);
+        CryptoUtilities.powerMod(n, p, m);
+        assertEquals("1", n.toString());
+        assertEquals("18", p.toString());
+        assertEquals("19", m.toString());
+    }
+    @Test
+    public void testPowerMod_2_3_5() {
+        NaturalNumber n = new NaturalNumber2(2);
+        NaturalNumber p = new NaturalNumber2(3);
+        NaturalNumber m = new NaturalNumber2(5);
+        CryptoUtilities.powerMod(n, p, m);
+        assertEquals("3", n.toString());
+        assertEquals("3", p.toString());
+        assertEquals("5", m.toString());
+    }
+    @Test
+    public void testPowerMod_3_4_3() {
+        NaturalNumber n = new NaturalNumber2(3);
+        NaturalNumber p = new NaturalNumber2(4);
+        NaturalNumber m = new NaturalNumber2(3);
+        CryptoUtilities.powerMod(n, p, m);
+        assertEquals("0", n.toString());
+        assertEquals("4", p.toString());
+        assertEquals("3", m.toString());
+    }
+    /*
+     * Tests of isWitnessToCompositeness
+     */
+    
+    @Test
+    public void testisWitnessToCompositeness_23_25() {
+    	NaturalNumber w = new NaturalNumber2(23);
+    	NaturalNumber n = new NaturalNumber2(25);
+    	boolean judge = CryptoUtilities.isWitnessToCompositeness(w,n);
+    	assertEquals(judge,true);
+    	assertEquals("23",w.toString());
+    	assertEquals("25",n.toString());
+    }
+
+    @Test
+    public void testisWitnessToCompositeness_5_29() {
+    	NaturalNumber w = new NaturalNumber2(5);
+    	NaturalNumber n = new NaturalNumber2(29);
+    	boolean judge = CryptoUtilities.isWitnessToCompositeness(w,n);
+    	assertEquals(judge,false);
+    	assertEquals("5",w.toString());
+    	assertEquals("29",n.toString());
+    }
+    
+    @Test
+    public void testisWitnessToCompositeness_7_31() {
+    	NaturalNumber w = new NaturalNumber2(7);
+    	NaturalNumber n = new NaturalNumber2(31);
+    	boolean judge = CryptoUtilities.isWitnessToCompositeness(w,n);
+    	assertEquals(judge,false);
+    	assertEquals("7",w.toString());
+    	assertEquals("31",n.toString());
+    }
+    
+    @Test
+    public void testisWitnessToCompositeness_20_50() {
+    	NaturalNumber w = new NaturalNumber2(5);
+    	NaturalNumber n = new NaturalNumber2(29);
+    	boolean judge = CryptoUtilities.isWitnessToCompositeness(w,n);
+    	assertEquals(judge,false);
+    	assertEquals("20",w.toString());
+    	assertEquals("50",n.toString());
+    }
+    
+    /*
+     * Tests of isPrime2
+     */
+    @Test
+    public void testisPrime2_7() {
+    	NaturalNumber w = new NaturalNumber2(7);
+    	boolean judge = CryptoUtilities.isPrime2(w);
+    	assertEquals(judge,true);
+    	assertEquals("7",w.toString());
+    }
+    @Test
+    public void testisPrime2_9() {
+    	NaturalNumber w = new NaturalNumber2(9);
+    	boolean judge = CryptoUtilities.isPrime2(w);
+    	assertEquals(judge,false);
+    	assertEquals("9",w.toString());
+    }
+    @Test
+    public void testisPrime2_14() {
+    	NaturalNumber w = new NaturalNumber2(14);
+    	boolean judge = CryptoUtilities.isPrime2(w);
+    	assertEquals(judge,false);
+    	assertEquals("14",w.toString());
+    }
+    @Test
+    public void testisPrime2_99() {
+    	NaturalNumber w = new NaturalNumber2(99);
+    	boolean judge = CryptoUtilities.isPrime2(w);
+    	assertEquals(judge,false);
+    	assertEquals("99",w.toString());
+    }
+}

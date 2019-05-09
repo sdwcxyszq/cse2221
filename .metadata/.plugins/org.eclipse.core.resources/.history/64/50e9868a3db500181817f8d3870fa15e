@@ -1,0 +1,40 @@
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+
+/**
+ * Simple HelloWorld program (clear of Checkstyle and FindBugs warnings).
+ *
+ * @author P. Bucci
+ */
+public final class HelloWorld {
+	
+	
+
+	/**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments; unused here
+     */
+    public static void main(String[] args) {
+        SimpleWriter out = new SimpleWriter1L();
+        
+        
+        out.close();
+    }
+    /**
+     * Repeatedly asks the user for a positive integer until the user enters
+     * one. Returns the positive integer.
+     * 
+     * @param in
+     *            the input stream
+     * @param out
+     *            the output stream
+     * @return a positive integer entered by the user
+     */
+    private static int getPositiveInteger(SimpleReader in, SimpleWriter out) {
+    	out.println("Enter the positive integer:");
+    	int num = in.nextLine();
+    }
+
+}

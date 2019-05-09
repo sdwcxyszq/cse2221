@@ -1,0 +1,128 @@
+import components.naturalnumber.NaturalNumber;
+import components.naturalnumber.NaturalNumber1L;
+import components.naturalnumber.NaturalNumber2;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+import components.xmltree.XMLTree;
+
+/**
+ * Program with implementation of {@code NaturalNumber} secondary operation
+ * {@code root} implemented as static method.
+ *
+ * @author Put your name here
+ *
+ */
+public final class NaturalNumberRoot {
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private NaturalNumberRoot() {
+    }
+
+    /**
+     * Returns the product of the digits of {@code n}.
+     *
+     * @param n
+     *            {@code NaturalNumber} whose digits to multiply
+     * @return the product of the digits of {@code n}
+     * @clears n
+     * @ensures productOfDigits1 = [product of the digits of n]
+     */
+    private static NaturalNumber productOfDigits1(NaturalNumber n) {
+    	NaturalNumber zero = new NaturalNumber2(0);
+    	NaturalNumber remainder = new NaturalNumber2(n.divideBy10());
+    	if(n.compareTo(zero)!=0) {
+    		remainder.multiply(productOfDigits1(n));
+    	}
+    	return remainder;
+    }
+    /**
+     * Returns the product of the digits of {@code n}.
+     *
+     * @param n
+     *            {@code NaturalNumber} whose digits to multiply
+     * @return the product of the digits of {@code n}
+     * @clears n
+     * @ensures productOfDigits1 = [product of the digits of n]
+     */
+    private static NaturalNumber productOfDigits2(NaturalNumber n) {
+    	NaturalNumber zero = new NaturalNumber2(0);
+    	NaturalNumber remainder = new NaturalNumber2(n.divideBy10());
+    	if(n.compareTo(zero)!=0) {
+    		remainder.multiply(productOfDigits1(n));
+    	}
+    	else {
+    		n.increment();
+    	}
+    	n.multiplyBy10(remainder.toInt());
+    	return remainder;
+    }
+    /**
+     * Reports the value of {@code n} as an {@code int}, when {@code n} is
+     * small enough.
+     * 
+     * @param n
+     *            the given {@code NaturalNumber}
+     * @return the value
+     * @requires n <= Integer.MAX_VALUE
+     * @ensures toInt = n
+     */
+    private static int toInt(NaturalNumber n) {
+    	NaturalNumber zero= new NaturalNumber2(0);
+    	int remainder = n.divideBy10();
+    	if(n.compareTo(zero)!=0) {
+    		return toInt(n)*10+remainder;
+    	}
+    	return remainder;
+    }
+    /**
+     * Reports whether the given tag appears in the given {@code XMLTree}.
+     * 
+     * @param xml
+     *            the {@code XMLTree}
+     * @param tag
+     *            the tag name
+     * @return true if the given tag appears in the given {@code XMLTree},
+     *         false otherwise
+     * @ensures <pre>
+     * findTag =
+     *    [true if the given tag appears in the given {@code XMLTree}, false otherwise]
+     * </pre>
+     */
+    private static boolean findTag(XMLTree xml, String tag) {
+    	if(xml.isTag()&&xml.label().equals(tag)) {
+    		return true;
+    	}
+    	else {
+    		boolean judge=false;
+    		if(xml.numberOfChildren()!=0) {
+    			for(int index=0;index<xml.numberOfChildren();index++) {
+    				
+    				 if(findTag(xml.child(index),tag)) {
+    					 judge=true;
+    				 }
+    			}
+    		}
+    		else {
+    			judge= false;
+    		}
+    		return judge;
+    	}
+    }
+
+	/**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleWriter out = new SimpleWriter1L();
+        NaturalNumber num = new NaturalNumber2(566);
+        out.println(toInt(num));
+        out.println(num);
+        
+    }
+
+}

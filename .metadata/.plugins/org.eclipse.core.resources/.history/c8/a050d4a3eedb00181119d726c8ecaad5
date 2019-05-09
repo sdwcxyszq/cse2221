@@ -1,0 +1,71 @@
+import components.naturalnumber.NaturalNumber;
+import components.naturalnumber.NaturalNumber1L;
+import components.naturalnumber.NaturalNumber2;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+import components.xmltree.XMLTree;
+
+/**
+ * Program with implementation of {@code NaturalNumber} secondary operation
+ * {@code root} implemented as static method.
+ *
+ * @author Put your name here
+ *
+ */
+public final class NaturalNumberRoot {
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private NaturalNumberRoot() {
+    }
+
+    /**
+     * Converts the given {@code NaturalNumber} to a {@code String} with commas.
+     * 
+     * @param n
+     *            the number
+     * @return the {@code String} with commas
+     * @ensures toStringWithCommas = [String representation of n with commas]
+     */
+    public static String toStringWithCommas(NaturalNumber n) {
+    	NaturalNumber num = new NaturalNumber2(n);
+    	NaturalNumber thousand = new NaturalNumber2(1000);
+    	String str = "";
+    	if(num.compareTo(thousand)<0) {
+    		return n.toString();
+    	}
+    	else {
+    		int remainder1 = n.divideBy10();
+    		int remainder2 = n.divideBy10();
+    		int remainder3 = n.divideBy10();
+    		str=toStringWithCommas(n)+","+str;
+    		str= str+remainder3+remainder2+remainder1;
+    	}
+    	return str;
+    }
+    public static void increment(NaturalNumber n) {
+    	int remainder = n.divideBy10();
+    	remainder++;
+    	if(remainder==10) {
+    		remainder=0;
+    		increment(n);
+    	}
+    	n.multiplyBy10(remainder);
+    }
+
+	/**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleWriter out = new SimpleWriter1L();
+        NaturalNumber num = new NaturalNumber2(5664234);
+        increment(num);
+        out.println(num);
+        
+    }
+
+}

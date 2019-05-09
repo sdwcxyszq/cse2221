@@ -1,0 +1,19 @@
+import components.queue.*;
+import components.queue.Queue1L;
+public class practice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Queue<Integer> a = new Queue1L<>();
+		int k = 70;
+		a.enqueue(k);
+		Integer b = a.front();
+		b = 80;
+		System.out.println(b);
+		System.out.println(a.front());
+		k=80;
+		System.out.println(a.front());
+		System.out.println(k);
+	}
+
+}
